@@ -86,7 +86,7 @@ fun PhotoScreenWithPermission(
     // Observe lifecycle events to re-check permission on resume
     DisposableEffect(lifecycleOwner) {
         val observer = LifecycleEventObserver { _, event ->
-            if (event == Lifecycle.Event.ON_START) {
+            if (event == Lifecycle.Event.ON_RESUME) {
                 val isGranted = ContextCompat.checkSelfPermission(
                     context,
                     Manifest.permission.CAMERA
