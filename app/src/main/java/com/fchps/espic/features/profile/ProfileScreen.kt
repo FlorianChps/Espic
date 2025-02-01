@@ -42,7 +42,9 @@ fun ProfileScreen(
         viewModel.eventFlow.collect { event ->
             when (event) {
                 is ProfileUiEvent.PseudoDeleted -> {
-                    navController.navigate("login")
+                    navController.navigate("login") {
+                        popUpTo(navController.graph.startDestinationId) { inclusive = true }
+                    }
                 }
 
                 is ProfileUiEvent.ShowError -> {
