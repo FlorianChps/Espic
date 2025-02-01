@@ -1,6 +1,5 @@
 package com.fchps.espic.di
 
-import com.fchps.domain.repository.CameraRepository
 import com.fchps.domain.repository.FeedRepository
 import com.fchps.domain.repository.LoginRepository
 import com.fchps.domain.usecase.AddFeedUseCase

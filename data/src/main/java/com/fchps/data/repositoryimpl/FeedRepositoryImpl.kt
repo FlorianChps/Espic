@@ -5,14 +5,16 @@ import com.fchps.data.datasource.remote.FeedRemoteDataSource
 import com.fchps.data.mapper.toFeed
 import com.fchps.domain.model.Feed
 import com.fchps.domain.repository.FeedRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 class FeedRepositoryImpl(
     private val remoteDataSource: FeedRemoteDataSource,
     private val localDataSource: FeedLocalDataSource
 ) : FeedRepository {
 
-    override suspend fun getFeed(): Result<List<Feed>> {
-        return try {
+    override suspend fun getFeed(): Result<List<Feed>> = withContext(Dispatchers.IO) {
+        try {
             // Attempt to fetch from local
             val localResult = localDataSource.fetchFeed().getOrNull().orEmpty()
 
@@ -39,7 +41,7 @@ class FeedRepositoryImpl(
         }
     }
 
-    override suspend fun addNewPost(feed: Feed): Result<Unit> {
-        return localDataSource.addNewFeed(feed)
+    override suspend fun addNewPost(feed: Feed): Result<Unit> = withContext(Dispatchers.IO) {
+        localDataSource.addNewFeed(feed)
     }
 }
