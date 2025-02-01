@@ -83,7 +83,7 @@ fun PhotoScreenWithPermission(
         }
     }
 
-/*    // Observe lifecycle events to re-check permission on resume
+    // Observe lifecycle events to re-check permission on resume
     DisposableEffect(lifecycleOwner) {
         val observer = LifecycleEventObserver { _, event ->
             if (event == Lifecycle.Event.ON_START) {
@@ -110,12 +110,11 @@ fun PhotoScreenWithPermission(
         onDispose {
             lifecycleOwner.lifecycle.removeObserver(observer)
         }
-    }*/
+    }
 
     when (permissionState) {
         is PermissionState.Granted -> {
             PhotoCameraScreen(
-                viewModel = viewModel,
                 imageCapture = imageCapture,
                 onNewPost = { uri, filter ->
                     Log.e("PhotoScreen", "Uri to add: $uri")

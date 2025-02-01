@@ -32,7 +32,7 @@ class LoginViewModel @Inject constructor(
                 if (result.isSuccess) {
                     _eventFlow.emit(LoginUiEvent.RedirectToHome)
                 } else {
-                    _eventFlow.emit(LoginUiEvent.ShowError("Failed to store pseudo"))
+                    _eventFlow.emit(LoginUiEvent.ShowError("Impossible d'enregistrer le pseudo"))
                 }
             } catch (exception: Exception) {
                 _uiState.value = _uiState.value.copy(isLoading = false)

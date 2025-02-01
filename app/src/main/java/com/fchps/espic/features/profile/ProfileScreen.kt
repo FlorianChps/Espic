@@ -38,7 +38,6 @@ fun ProfileScreen(
 ) {
     val uiState by viewModel.uiState.collectAsState()
 
-    // Collect events from the viewModel
     LaunchedEffect(Unit) {
         viewModel.eventFlow.collect { event ->
             when (event) {
@@ -47,7 +46,7 @@ fun ProfileScreen(
                 }
 
                 is ProfileUiEvent.ShowError -> {
-                    // Show error message
+                    navController.navigateUp()
                 }
             }
         }
@@ -77,12 +76,10 @@ fun ProfileScreen(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Display pseudo and other data
-        Text(text = uiState.pseudo ?: "Loading...", style = MaterialTheme.typography.titleLarge)
+        Text(text = uiState.pseudo ?: "Chargement...", style = MaterialTheme.typography.titleLarge)
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        // Disconnect Button
         Button(
             onClick = { viewModel.onDisconnectClick() },
             modifier = Modifier.fillMaxWidth(),
@@ -91,7 +88,7 @@ fun ProfileScreen(
             if (uiState.isLoading) {
                 CircularProgressIndicator(modifier = Modifier.size(24.dp))
             } else {
-                Text("Disconnect")
+                Text("Se déconnecter")
             }
         }
     }

@@ -69,7 +69,6 @@ import java.util.Locale
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PhotoCameraScreen(
-    viewModel: PhotoViewModel,
     imageCapture: MutableState<ImageCapture?>,
     onNewPost: (Uri, String) -> Unit
 ) {

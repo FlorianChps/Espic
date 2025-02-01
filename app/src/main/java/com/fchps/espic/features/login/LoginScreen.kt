@@ -64,7 +64,7 @@ fun LoginScreen(
         OutlinedTextField(
             value = pseudo,
             onValueChange = { pseudo = it },
-            label = { Text("Enter Pseudo") },
+            label = { Text("Entrez ton pseudo et rejoins l'aventure") },
             modifier = Modifier.fillMaxWidth()
         )
 
@@ -77,7 +77,7 @@ fun LoginScreen(
             enabled = pseudo.isNotBlank() && !uiState.isLoading,
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text(text = "Continue")
+            Text(text = "Continuer")
         }
     }
 }

@@ -8,12 +8,12 @@ sealed class BottomNavItem(
     val icon: Int
 ) {
 
-    data object Feed : BottomNavItem("feed", "Feed", R.drawable.ic_feed)
+    data object Feed : BottomNavItem("feed", "Accueil", R.drawable.ic_feed)
 
     data object Photo :
         BottomNavItem("photo", "Photo", R.drawable.ic_camera)
 
-    data object Profile : BottomNavItem("profile", "Profile", R.drawable.ic_profile)
+    data object Profile : BottomNavItem("profile", "Profil", R.drawable.ic_profile)
 
     companion object {
         val items = listOf(Feed, Photo, Profile)
