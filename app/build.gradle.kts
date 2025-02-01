@@ -53,13 +53,13 @@ dependencies {
     implementation(libs.androidx.hilt)
     ksp(libs.hilt.compiler)
 
-    implementation("io.coil-kt.coil3:coil-compose:3.0.4")
-    implementation("io.coil-kt.coil3:coil-network-okhttp:3.0.4")
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
 
-    implementation("androidx.camera:camera-core:1.5.0-alpha03")
-    implementation("androidx.camera:camera-camera2:1.5.0-alpha03")
-    implementation("androidx.camera:camera-lifecycle:1.5.0-alpha03")
-    implementation("androidx.camera:camera-view:1.5.0-alpha03")
+    implementation(libs.androidx.camera.core)
+    implementation(libs.androidx.camera.camera2)
+    implementation(libs.androidx.camera.lifecycle)
+    implementation(libs.androidx.camera.view)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
